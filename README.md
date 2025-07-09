@@ -35,6 +35,18 @@ AttTrack/
 │   └── ...
 └── README.md
 ```
+## Future Work
+
+### Face Recognition-Based Attendance (Upcoming)
+- To further enhance security and eliminate proxy attendance, the system will soon integrate Face Recognition using PyTorch and deep learning.
+  
+  ### Flow Overview
+  - Student enters the attendance code
+  - Student’s face is captured using the device webcam
+  - System detects and extracts the face region
+  - A deep learning model converts the face into a feature vector (embedding)
+  - The embedding is compared with the one stored during registration
+  - If both face match and geolocation are valid → Attendance is confirmed 
 
 ---
 
