@@ -1,6 +1,20 @@
 # AttTrack
 
-AttTrack is a full-stack web application designed for managing and tracking student attendance efficiently in an academic environment. It features a React-based frontend and a Node.js backend, using PostgreSQL and Redis for persistent and cache storage, respectively.
+AttTrack is a full-stack role-based **Student Attendance Management System** for managing and tracking student attendance efficiently in an academic environment that tackles the persistent issue of **proxy attendance**. It features a React-based frontend and a Node.js backend, using PostgreSQL and Redis for persistent and cache storage, respectively.
+
+---
+
+
+## Problem Statement
+
+In academic institutions, traditional attendance systems are vulnerable to **proxy attendance**, where students mark presence for their peers without being physically present. Manual processes also make it difficult to manage and audit attendance data efficiently.
+
+This project aims to solve these issues by:
+- Verifying students' **real-time physical presence** using geolocation
+- Using **random time-bound attendance codes**
+- Implementing **role-based access control** for security
+- Managing data using a **scalable caching + DB sync mechanism**
+
 
 ---
 
@@ -12,6 +26,34 @@ AttTrack is a full-stack web application designed for managing and tracking stud
 - **Statistics & Reports:** Retrieve attendance records and analytics per student, per subject.
 - **Modern Frontend:** Built with React + Vite for fast development and hot module reloading.
 - **State Management:** Uses Redux Toolkit on the frontend for efficient state handling.
+
+---
+
+## 🔄 User Flow
+
+
+### 👨‍🎓 Student Flow
+1. Logs in with secure credentials.
+2. Navigates to the attendance screen.
+3. Enters the attendance code shared by the teacher.
+4. Shares real-time location (used to verify proximity to classroom).
+5. If code + location are valid:
+   - Attendance is cached in Redis.
+   - Periodically synced to PostgreSQL and Google Sheets.
+6. Student receives attendance confirmation.
+
+![image](https://github.com/user-attachments/assets/4b2bc7ff-85f3-4435-98b7-0628af8e4b1b)
+---
+
+### 👩‍🏫 Faculty Flow
+1. Logs in as a faculty member.
+2. Accesses the dashboard to:
+   - Generate new attendance codes (valid for 10 mins)
+   - Monitor live student submissions
+3. Attendance entries are backed up to both PostgreSQL and Google Sheets.
+
+![image](https://github.com/user-attachments/assets/9d2be99a-e6e5-4ce0-8138-1c4c7c75947f)
+
 
 ---
 
@@ -119,10 +161,11 @@ AttTrack/
 
 ---
 
-## Usage
+### Database
 
-- Teachers can log in, generate attendance codes for their classes, and view class attendance.
-- Students log in and use the code to mark their attendance.
-- Roles are validated and sessions are managed via Redis for efficient authentication.
+1.**Inside the Backend part**
+
+ - Go to constructDB Folder
+ - Run the ConstructDb.js to create a sample database (Postgresql should be running)
 
 ---
