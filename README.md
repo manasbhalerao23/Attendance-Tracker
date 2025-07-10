@@ -1,6 +1,6 @@
-# AttTrack
+# Attendance Tracker
 
-AttTrack is a full-stack web application designed for managing and tracking student attendance efficiently in an academic environment. It features a React-based frontend and a Node.js backend, using PostgreSQL and Redis for persistent and cache storage, respectively.
+Attendance Tracker is a full-stack web application designed for managing and tracking student attendance efficiently in an academic environment. It features a React-based frontend and a Node.js backend, using PostgreSQL and Redis for persistent and cache storage, respectively.
 
 ---
 
@@ -18,7 +18,7 @@ AttTrack is a full-stack web application designed for managing and tracking stud
 ## Project Structure
 
 ```
-AttTrack/
+Attendance Tracker/
 │
 ├── BE/                 # Backend (Node.js + Express)
 │   ├── constructDB/    # Database initialization and scripts
